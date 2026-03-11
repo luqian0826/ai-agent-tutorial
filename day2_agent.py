@@ -1,5 +1,10 @@
-# day1_agent.py
+# day2_agent.py
 import os
+
+#引入搜索功能
+from day2_utils.day2_tools import web_search
+#文件读写工具
+
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
@@ -36,7 +41,7 @@ def summarize_text(text: str) -> str:
 
 
 # 4. 创建工具列表
-tools = [get_current_time, summarize_text]
+tools = [get_current_time, summarize_text,web_search]
 
 # 5. 主函数
 def main():
