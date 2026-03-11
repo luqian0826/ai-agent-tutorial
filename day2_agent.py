@@ -4,6 +4,7 @@ import os
 #引入搜索功能
 from day2_utils.day2_tools import web_search
 #文件读写工具
+from day2_utils import day2_file_tools
 
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
@@ -41,7 +42,11 @@ def summarize_text(text: str) -> str:
 
 
 # 4. 创建工具列表
-tools = [get_current_time, summarize_text,web_search]
+tools = [get_current_time, summarize_text,
+         web_search,
+         day2_file_tools.read_csv,
+         day2_file_tools.read_json,
+         day2_file_tools.write_report]
 
 # 5. 主函数
 def main():
