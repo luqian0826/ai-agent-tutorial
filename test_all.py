@@ -124,10 +124,17 @@ def interactive_test():
     print("8. Day 2: 竞品分析系统")
     print("9. Day 2: 异步处理")
     print("10. Day 2: 缓存机制")
+    print("---")
+    print("11. Day 3: Streamlit Web应用")
+    print("12. Day 3: 竞品分析页面")
+    print("13. Day 3: 性能监控系统")
+    print("14. Day 3: 错误追踪系统")
+    print("15. Day 3: Docker部署")
+    print("---")
     print("0. 运行所有测试")
     print("q. 退出")
 
-    choice = input("\n请输入选项 (0-10, q): ").strip()
+    choice = input("\n请输入选项 (0-15, q): ").strip()
 
     test_map = {
         "1": ("day1_agent.py", "Day 1 基础Agent"),
@@ -140,6 +147,8 @@ def interactive_test():
         "8": ("day2_competitor_analysis.py", "竞品分析系统"),
         "9": ("day2_async.py", "异步处理"),
         "10": ("day2_cache.py", "缓存机制"),
+        "11": ("day3_monitoring.py", "性能监控系统"),
+        "12": ("day3_error_tracking.py", "错误追踪系统"),
     }
 
     if choice == "0":
@@ -163,6 +172,39 @@ def interactive_test():
     elif choice in test_map:
         filename, desc = test_map[choice]
         test_file(filename, desc)
+    elif choice == "11":
+        print("\n📝 启动Streamlit Web应用...")
+        print("   请在浏览器中访问: http://localhost:8501")
+        print("   按 Ctrl+C 停止应用")
+        print("\n提示: Streamlit应用需要在新的终端窗口中运行")
+        print("命令: streamlit run day3_app.py\n")
+    elif choice == "12":
+        print("\n📝 启动竞品分析页面...")
+        print("   请在浏览器中访问: http://localhost:8501")
+        print("   按 Ctrl+C 停止应用")
+        print("\n提示: 页面需要在新的终端窗口中运行")
+        print("命令: streamlit run pages/day3_competitor_analysis.py\n")
+    elif choice == "13":
+        filename, desc = test_map[choice]
+        test_file(filename, desc)
+    elif choice == "14":
+        filename, desc = test_map[choice]
+        test_file(filename, desc)
+    elif choice == "15":
+        print("\n📝 Docker部署测试")
+        print("\n请按照以下步骤进行Docker部署测试:")
+        print("1. 确保已安装Docker和Docker Compose")
+        print("2. 构建Docker镜像:")
+        print("   docker build -f day3_Dockerfile -t ai-agent-app .")
+        print("3. 运行容器:")
+        print("   docker run -d -p 8501:8501 --env-file .env ai-agent-app")
+        print("4. 或者使用Docker Compose:")
+        print("   docker-compose -f day3_docker-compose.yml up -d")
+        print("5. 访问应用: http://localhost:8501")
+        print("6. 查看日志:")
+        print("   docker-compose -f day3_docker-compose.yml logs -f")
+        print("7. 停止服务:")
+        print("   docker-compose -f day3_docker-compose.yml down")
     elif choice.lower() == "q":
         print("退出测试")
         return False

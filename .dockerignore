@@ -1,0 +1,26 @@
+# .dockerignore
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env
+venv
+.env
+*.so
+*.egg
+*.egg-info
+dist
+build
+.git
+.gitignore
+README.md
+.vscode
+.idea
+*.log
+.cache
+chroma_db
+competitor_reports
+ssl
+data
+logs

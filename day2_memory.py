@@ -15,10 +15,8 @@ class AgentMemory:
         self.persist_dir = Path(persist_dir)
         self.persist_dir.mkdir(exist_ok=True)
 
-        self.client = chromadb.Client(Settings(
-            chroma_db_impl="duckdb+parquet",
-            persist_directory=str(self.persist_dir)
-        ))
+        # 使用新的 ChromaDB 客户端构造方式
+        self.client = chromadb.PersistentClient(path=str(self.persist_dir))
 
         # 创建或获取集合
         self.collection = self.client.get_or_create_collection(

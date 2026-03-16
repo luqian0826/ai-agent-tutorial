@@ -66,6 +66,32 @@ def web_search(query: str) -> str:
     finally:
         loop.close()
 
+# CrewAI 兼容的搜索工具
+try:
+    from crewai_tools import SerperDevTool
+    # 使用 SerperDev 搜索工具（需要 SERPER_API_KEY 环境变量）
+    crewai_web_search_tool = SerperDevTool()
+except ImportError:
+    try:
+        from crewai_tools import ScrapeWebsiteTool
+        # 使用网站抓取工具作为备选
+        crewai_web_search_tool = ScrapeWebsiteTool()
+    except ImportError:
+        # 如果都没有，创建一个简单的搜索工具
+        from crewai import Tool
+        from langchain_core.tools import tool as langchain_tool
+
+        @langchain_tool
+        def simple_web_search(query: str) -> str:
+            """搜索网络信息"""
+            return web_search(query)
+
+        crewai_web_search_tool = Tool(
+            name="Web Search",
+            description="搜索网络信息，获取最新的资讯和数据",
+            func=simple_web_search
+        )
+
 # 测试代码
 if __name__ == "__main__":
     print("🔍 测试网络搜索工具")

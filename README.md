@@ -6,19 +6,29 @@
 
 ```
 ai-agent-tutorial/
-├── day1_agent.py              # Day 1: 第一个AI Agent
-├── day2_tools.py              # Day 2: 网络搜索工具
-├── day2_file_tools.py         # Day 2: 文件读写工具
-├── day2_analysis_tools.py     # Day 2: 数据分析工具
-├── day2_memory.py             # Day 2: 记忆系统
-├── day2_memory_agent.py       # Day 2: 记忆增强Agent
-├── day2_team.py               # Day 2: 多Agent团队
-├── day2_competitor_analysis.py # Day 2: 竞品分析系统
-├── day2_async.py              # Day 2: 异步处理
-├── day2_cache.py              # Day 2: 缓存机制
-├── requirements.txt           # Python依赖
-├── .env.example               # 环境变量模板
-└── README.md                  # 本文件
+├── day1_agent.py                 # Day 1: 第一个AI Agent
+├── day2_tools.py                 # Day 2: 网络搜索工具
+├── day2_file_tools.py            # Day 2: 文件读写工具
+├── day2_analysis_tools.py        # Day 2: 数据分析工具
+├── day2_memory.py                # Day 2: 记忆系统
+├── day2_memory_agent.py          # Day 2: 记忆增强Agent
+├── day2_team.py                  # Day 2: 多Agent团队
+├── day2_competitor_analysis.py   # Day 2: 竞品分析系统
+├── day2_async.py                 # Day 2: 异步处理
+├── day2_cache.py                 # Day 2: 缓存机制
+├── day3_app.py                   # Day 3: Streamlit Web应用
+├── pages/
+│   └── day3_competitor_analysis.py  # Day 3: 竞品分析页面
+├── day3_monitoring.py            # Day 3: 性能监控系统
+├── day3_error_tracking.py        # Day 3: 错误追踪系统
+├── day3_Dockerfile               # Day 3: Docker镜像配置
+├── day3_docker-compose.yml       # Day 3: Docker Compose配置
+├── day3_.dockerignore            # Day 3: Docker忽略文件
+├── day3_nginx.conf               # Day 3: Nginx配置
+├── day3_requirements.txt         # Day 3: Web应用依赖
+├── requirements.txt              # Python依赖
+├── .env.example                  # 环境变量模板
+└── README.md                     # 本文件
 ```
 
 ## 🚀 快速开始
@@ -119,6 +129,41 @@ python day2_cache.py
 - 过期清理
 - 性能统计
 
+### Day 3: 部署上线与商业化
+
+#### 1. Streamlit Web应用 (`day3_app.py`)
+- 美观的Web界面
+- 实时对话交互
+- 流式输出效果
+- 侧边栏设置
+- 会话管理
+
+#### 2. 竞品分析页面 (`pages/day3_competitor_analysis.py`)
+- 单个产品分析
+- 批量分析功能
+- 结果可视化展示
+- 统计汇总
+
+#### 3. 性能监控系统 (`day3_monitoring.py`)
+- CPU使用率监控
+- 内存使用率监控
+- 磁盘使用率监控
+- 网络流量监控
+- 历史趋势图表
+
+#### 4. 错误追踪系统 (`day3_error_tracking.py`)
+- 错误日志记录
+- 请求日志记录
+- 错误分类统计
+- 历史错误查询
+
+#### 5. Docker容器化部署
+- Docker镜像构建
+- Docker Compose编排
+- Nginx反向代理
+- 健康检查配置
+- 数据持久化
+
 ## 🧪 测试指南
 
 ### 测试Day 1
@@ -168,6 +213,41 @@ python day2_async.py
 python day2_cache.py
 ```
 
+### 测试Day 3 Web应用
+
+```bash
+# 运行Streamlit应用
+streamlit run day3_app.py
+
+# 运行竞品分析页面
+streamlit run pages/day3_competitor_analysis.py
+
+# 测试监控系统
+python day3_monitoring.py
+
+# 测试错误追踪
+python day3_error_tracking.py
+```
+
+### Docker部署测试
+
+```bash
+# 构建Docker镜像
+docker build -f day3_Dockerfile -t ai-agent-app .
+
+# 运行容器
+docker run -d -p 8501:8501 --env-file .env ai-agent-app
+
+# 使用Docker Compose
+docker-compose -f day3_docker-compose.yml up -d
+
+# 查看日志
+docker-compose -f day3_docker-compose.yml logs -f
+
+# 停止服务
+docker-compose -f day3_docker-compose.yml down
+```
+
 ## 📊 生成的文件
 
 运行后会生成以下目录：
@@ -209,9 +289,12 @@ pip install --force-reinstall -r requirements.txt
 
 - Day 1 教程：`微信公众号文章-AI Agent实战.md`
 - Day 2 教程：`微信公众号文章-AI Agent实战-Day2.md`
+- Day 3 教程：`微信公众号文章-AI Agent实战-Day3.md`
 - DeepSeek API: https://platform.deepseek.com/
 - LangChain文档: https://python.langchain.com/
 - CrewAI文档: https://docs.crewai.com/
+- Streamlit文档: https://docs.streamlit.io/
+- Docker文档: https://docs.docker.com/
 
 ## 📝 注意事项
 

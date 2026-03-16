@@ -173,6 +173,112 @@ python day2_cache.py
 
 ---
 
+### Day 3 Web应用测试
+
+#### 1. Streamlit主应用
+
+```bash
+streamlit run day3_app.py
+```
+
+✅ 预期：
+- 浏览器自动打开 `http://localhost:8501`
+- 显示AI对话界面
+- 可以与AI助手交互
+- 侧边栏显示设置和统计
+
+**测试功能**：
+- 发送消息并接收AI回复
+- 调整系统提示词
+- 调整创造性参数
+- 清除对话历史
+- 查看消息统计
+
+---
+
+#### 2. 竞品分析页面
+
+```bash
+streamlit run pages/day3_competitor_analysis.py
+```
+
+✅ 预期：
+- 显示竞品分析界面
+- 可以输入产品名称进行单个分析
+- 可以批量分析多个产品
+- 结果以表格和JSON形式展示
+
+**测试功能**：
+- 单个产品分析
+- 批量产品分析
+- 查看分析结果
+- 查看统计汇总
+
+---
+
+#### 3. 性能监控系统
+
+```bash
+python day3_monitoring.py
+```
+
+✅ 预期：
+- 实时显示CPU使用率
+- 实时显示内存使用率
+- 实时显示磁盘使用率
+- 显示历史趋势图
+
+---
+
+#### 4. 错误追踪系统
+
+```bash
+python day3_error_tracking.py
+```
+
+✅ 预期：
+- 记录测试错误
+- 保存到日志文件
+- 显示错误已记录提示
+
+---
+
+#### 5. Docker部署测试
+
+```bash
+# 构建Docker镜像
+docker build -f day3_Dockerfile -t ai-agent-app .
+
+# 运行容器
+docker run -d -p 8501:8501 --env-file .env ai-agent-app
+
+# 访问应用
+# 浏览器打开 http://localhost:8501
+```
+
+✅ 预期：
+- Docker镜像构建成功
+- 容器启动成功
+- 可以访问Web应用
+
+**使用Docker Compose**：
+
+```bash
+# 启动所有服务
+docker-compose -f day3_docker-compose.yml up -d
+
+# 查看运行状态
+docker-compose -f day3_docker-compose.yml ps
+
+# 查看日志
+docker-compose -f day3_docker-compose.yml logs -f
+
+# 停止服务
+docker-compose -f day3_docker-compose.yml down
+```
+
+---
+
 ## 🧪 完整测试
 
 运行所有测试：
@@ -344,8 +450,11 @@ del test_*.csv test_*.json
 
 - Day 1 教程：`微信公众号文章-AI Agent实战.md`
 - Day 2 教程：`微信公众号文章-AI Agent实战-Day2.md`
+- Day 3 教程：`微信公众号文章-AI Agent实战-Day3.md`
 - README：`README.md`
 - 测试脚本：`test_all.py`
+- Streamlit文档：https://docs.streamlit.io/
+- Docker文档：https://docs.docker.com/
 
 ---
 
